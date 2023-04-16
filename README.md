@@ -1,4 +1,13 @@
+## Зависимости
+- Docker Compose version v2.17.2
+- GNU Make 4.2.1
+
 ## Подготовительные работы
-pip3 install -r requirements.txt
+- make build
+
 ## Запуск проекта
-- uvicorn app.main:app --reload
+- make start
+
+## Доп команды
+- make stop
+- make restart
