@@ -1,4 +1,5 @@
 ## Зависимости
+- Docker version 23.0.3
 - Docker Compose version v2.17.2
 - GNU Make 4.2.1
 
