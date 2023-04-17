@@ -10,5 +10,7 @@
 - make start
 
 ## Доп команды
-- make stop
-- make restart
+- make stop - остановка сервисов
+- make restart - рестарт сервисов
+- make create_revision - создание версии миграции
+- make migration hash=<указать hash миграции> - мигрировать таблицы
