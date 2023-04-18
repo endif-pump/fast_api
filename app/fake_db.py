@@ -1,9 +1,12 @@
+# pylint: disable=too-few-public-methods
 
-class Fake_DB:
+class FakeDB:
+    """Fake database"""
+
     fake_users = [
-        {"id":1, "name": "ilya"},
-        {"id":2, "name": "ilya2"},
-        {"id":3, "name": "ilya3", "info": [{"sex":"m", "old": 44}]},
+        {"id": 1, "name": "ilya"},
+        {"id": 2, "name": "ilya2"},
+        {"id": 3, "name": "ilya3", "info": [{"sex": "m", "old": 44}]},
     ]
 
     fake_data = [
