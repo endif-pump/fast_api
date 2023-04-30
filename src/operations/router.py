@@ -1,23 +1,27 @@
 from sqlalchemy import insert, select
 from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi import APIRouter, Depends
+from fastapi_cache.decorator import cache
 
 from src.database import get_async_session
 from src.operations.models import operation
 from src.operations.schemas import OperationCreate
+
+import time
 
 router = APIRouter(
     prefix="/operations",
     tags=["Operations"]
 )
 
-
 @router.get("/")
+@cache(expire=30)
 async def get_specific_operations(
     operation_type: str,
     session: AsyncSession = Depends(get_async_session)
 ):
     try:
+        time.sleep(2)
         query = select(operation).where(operation.c.type != operation_type)
         result = await session.execute(query)
         return {
