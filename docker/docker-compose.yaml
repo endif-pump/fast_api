@@ -13,10 +13,15 @@ services:
     ports:
       - 8080:8080
 
+  redis:
+    image: redis:6.2.12-alpine
+    restart: always
+
   fast_api:
     image: fast-api:test
     depends_on: 
       - db
+      - redis
     ports:
       - 8000:8000
     volumes:

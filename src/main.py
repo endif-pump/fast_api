@@ -3,7 +3,10 @@
 """Main endpoint for app"""
 
 from fastapi import FastAPI, Depends
+from fastapi_cache import FastAPICache
+from fastapi_cache.backends.redis import RedisBackend
 from fastapi_users import fastapi_users, FastAPIUsers
+from redis import asyncio as aioredis
 
 from .database import User
 from .auth.base_config import auth_backend
@@ -41,3 +44,8 @@ def protected_route(user: User = Depends(current_user)):
 
 
 app.include_router(router_operation)
+
+@app.on_event("startup")
+async def startup():
+    redis = aioredis.from_url("redis://localhost", encoding="utf8", decode_responses=True)
+    FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache")
