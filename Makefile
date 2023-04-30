@@ -1,4 +1,4 @@
-hash = ''
+hash = head
 
 build:
 	docker build -t fast-api:test -f docker/Dockerfile .
