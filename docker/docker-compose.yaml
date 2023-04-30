@@ -21,4 +21,4 @@ services:
       - 8000:8000
     volumes:
       - ../:/app
-    entrypoint: uvicorn app.main:app --reload
+    entrypoint: uvicorn src.main:app --reload
